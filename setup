@@ -5,3 +5,6 @@ source MEETpythonY2
 If you have already run the code above but you've opened a new terminal window, please run:
 
 source ~/y2-venv/bin/activate
+
+
+https://github.com/meet-projects/Y2-2015-Day-4a --> has the bash and many useful things
