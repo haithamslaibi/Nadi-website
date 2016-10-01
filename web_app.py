@@ -13,16 +13,23 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-@app.route('/signin/',methods=['POST'])
-def signin():
-    email=request.form['email']
-    password=request.form['password']
-    user=session.query(Users).filter_by(email=email).first()
-    if(user!=null):
-        return render_template('main_page.html')
 @app.route('/')
-def main():
-    return render_template('sign_in.html')
+def home():
+    return render_template('Home.html')
+
+@app.route('/Horses')
+def horses():
+	return render_template('Horses.html')
+
+@app.route('/Riders')
+def riders():
+	return render_template('Riders.html')
+
+@app.route('/Score')
+def score():
+	return render_template('Score.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
