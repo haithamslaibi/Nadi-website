@@ -19,10 +19,10 @@
 		      <a class="navbar-brand" href="{{url_for('home')}}">Nadi Home Page</a>
 		    </div>
 		    <ul class="nav navbar-nav">
-		      <li class="active"><a href="{{url_for('home')}}">Home</a></li>
+		      <li><a href="{{url_for('home')}}">Home</a></li>
 		      <li><a href="{{url_for('riders')}}">Riders</a></li>
 		      <li><a href="{{url_for('horses')}}">Horses</a></li>
-		      <li><a href="{{url_for('score') }}">Score</a></li>
+		      <li class="active"><a href="{{url_for('score') }}">Score</a></li>
 		    </ul>
 		  </div>
 	</nav>
@@ -34,29 +34,19 @@
 	      <tr>
 	        <th>Name</th>
 	        <th>Club</th>
-	        <th>Horse</th>
 	        <th>Score</th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <tr>
-	        <td>John</td>
-	        <td>JEC</td>
-	        <td>Layali</td>
-	        <td>21</td>
-	      </tr>
-	      <tr>
-	        <td>Mary</td>
-	        <td>JEC</td>
-	        <td>Velnar</td>
-	        <td>17</td>
-	      </tr>
-	      <tr>
-	        <td>July</td>
-	        <td>JEC</td>
-	        <td>Dooley</td>
-	        <td>50</td>
-	      </tr>
+	    {% for rider in rider_list %}
+	        <a href="#">
+	        <tr>
+	        <td>{{rider.name}}</td>
+	        <td>{{rider.club}}</td>
+	        <td>{{rider.score}}</td>
+	      	</tr>
+	      	</a>
+	    {% endfor %}  
 	    </tbody>
 	  </table>
 	</div>

@@ -19,8 +19,8 @@
 		      <a class="navbar-brand" href="{{url_for('home')}}">Nadi Home Page</a>
 		    </div>
 		    <ul class="nav navbar-nav">
-		      <li class="active"><a href="{{url_for('home')}}">Home</a></li>
-		      <li><a href="{{url_for('riders')}}">Riders</a></li>
+		      <li><a href="{{url_for('home')}}">Home</a></li>
+		      <li class="active"><a href="{{url_for('riders')}}">Riders</a></li>
 		      <li><a href="{{url_for('horses')}}">Horses</a></li>
 		      <li><a href="{{url_for('score') }}">Score</a></li>
 		    </ul>
@@ -28,47 +28,24 @@
 		</nav>
 
 	<div class="container padding">
+		{% for rider_list in rider_lists %}
+			<div class="row row-centered">
+				{% for rider in rider_list %}
+					<div class="col-md-3">
+				      	<a href = "#" class = "thumbnail">
+			    	     <img src = "{{ url_for('static', filename='Images/{{rider.pic}}.jpg') }}" alt = {{rider.name}} >
+			      		</a>
+			      	 	<div class = "caption">
+		        	 	<h3>{{rider.name}}</h3>
+		   				</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
+	</div>
 
-		<div class="row">
-			<div class = "col-md-3">
-		      	<a href = "#" class = "thumbnail">
-	    	     <img src = "{{ url_for('static', filename='Images/picture.jpg') }}" alt = hello>
-	      		</a>
-	      	 	<div class = "caption">
-	        	 	<h3>Thumbnail label</h3>
-	   			</div>
-	   		</div>	   
-	   	
-	   		<div class = "col-md-3">
-		      	<a href = "#" class = "thumbnail">
-	    	     <img src = "{{ url_for('static', filename='Images/picture.jpg') }}" alt = hello>
-	      		</a>
-	      	 	<div class = "caption">
-	        	 	<h3>Thumbnail label</h3>
-	   			</div>
-	   		</div>	   
-	   	
-	   		<div class = "col-md-3">
-		      	<a href = "#" class = "thumbnail">
-	    	     <img src = "{{ url_for('static', filename='Images/picture.jpg') }}" alt = hello>
-	      		</a>
-	      	 	<div class = "caption">
-	        	 	<h3>Thumbnail label</h3>
-	   			</div>
-	   		</div>	   
-	   	
-	   		<div class = "col-md-3">
-		      	<a href = "#" class = "thumbnail">
-	    	     <img src = "{{ url_for('static', filename='Images/picture.jpg') }}" alt = hello>
-	      		</a>
-	      	 	<div class = "caption">
-	        	 	<h3>Thumbnail label</h3>
-	   			</div>
-	   		</div>	   
-	   	
-	   	</div>
 
-   	</div>
+
 		
 </body>
 </html>

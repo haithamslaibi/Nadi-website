@@ -1,9 +1,10 @@
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 
-from database_setup import Base, Person
+from database_setup import *
+from datetime import datetime
 
-engine = create_engine('sqlite:///crudlab.db')
+engine = create_engine('sqlite:///project.db')
 Base.metadata.create_all(engine)
 Base.metadata.bind = engine
 
@@ -11,3 +12,40 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 # You can add some starter data for your database here.
+
+
+session.query(Users).delete()
+session.query(Horses).delete()
+session.query(Data).delete()
+
+
+test_person = Users(name='Haitham Slaibi',birthday = datetime(year=1997,month=5,day=13), password = 'test' , score = 20 , username = 'haitham.slaibi' , slogan = 'best' ,course_height = 120 , pic = 'none')
+
+test_horse1 = Horses(name = 'Layali' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none' ,owner = 'me')
+test_horse2 = Horses(name = 'palestine' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
+test_horse3 = Horses(name = 'bahar' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
+test_horse4 = Horses(name = 'majnonee' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
+test_horse5 = Horses(name = 'zain' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
+
+admin = Admin (username = 'admin' ,password = 'admin')
+#test_data = Data()
+
+session.add(test_person)
+
+session.add(test_horse1)
+session.add(test_horse2)
+session.add(test_horse3)
+session.add(test_horse4)
+session.add(test_horse5)
+
+session.add(admin)
+
+session.commit()
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+		
+	<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+	<!-- Latest compiled and minified CSS --> 
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+	<!-- jQuery library --> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+	<!-- Latest compiled JavaScript --> 
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Css/styles.css') }}">
+
+</head>
+<body>
+
+
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h1 class="text-center">Login</h1>
+          {% if error == True %}
+          	<h4 style="color:red" class="text-center"> Wrong username or password, try again </h4>
+          {% endif %}
+      </div>
+      <div class="modal-body">
+          <form class="form col-md-12 center-block" method='POST' action="{{ url_for('admin') }}" role="form">
+            <div class="form-group">
+              <input type="text" name="username"  class="form-control input-lg" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <input type="password" name='password' class="form-control input-lg" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-lg btn-block" value="Log in"></input>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+  </div>
+  </div>
+</div>
+
+
+</body>
+</html>
