@@ -19,7 +19,9 @@ session.query(Horses).delete()
 session.query(Data).delete()
 
 
-test_person = Users(name='Haitham Slaibi',birthday = datetime(year=1997,month=5,day=13), password = 'test' , score = 20 , username = 'haitham.slaibi' , slogan = 'best' ,course_height = 120 , pic = 'none')
+haitham = Users(name='Haitham Slaibi',birthday = datetime(year=1997,month=5,day=13), password = 'test' , score = 20 , username = 'haitham.slaibi' , slogan = 'best' ,course_height = 120 , pic = 'none')
+raneem =Users(name='Raneem Slaibi',birthday = datetime(year=2000,month=1,day=16), password = 'test' , score = 10 , username = 'raneem.slaibi' , slogan = 'habla' ,course_height = 100 , pic = 'none')
+
 
 test_horse1 = Horses(name = 'Layali' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none' ,owner = 'me')
 test_horse2 = Horses(name = 'palestine' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
@@ -30,7 +32,8 @@ test_horse5 = Horses(name = 'zain' , birthday = datetime(year=2001,month=5,day=1
 admin = Admin (username = 'admin' ,password = 'admin')
 #test_data = Data()
 
-session.add(test_person)
+session.add(haitham)
+session.add(raneem)
 
 session.add(test_horse1)
 session.add(test_horse2)
