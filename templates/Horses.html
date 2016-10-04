@@ -24,9 +24,14 @@
 		      <li class="active"><a href="{{url_for('horses')}}">Horses</a></li>
 		      <li><a href="{{url_for('score') }}">Score</a></li>
 		    </ul>
-  		    <ul class="nav navbar-nav navbar-right">
-    			<li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    		</ul>
+		    <ul class="nav navbar-nav navbar-right">
+		    	{%if id != 0%}
+    			<li><a href="{{url_for('profile')}}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+    			<li><a href="{{url_for('logOut')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    			{% elif id == 0 %}
+    			<li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> LogIn</a></li>
+    			{%endif%}
+    		</ul>		    
 		  </div>
 		</nav>
 
@@ -35,8 +40,8 @@
 			<div class="row row-centered">
 				{% for horse in horse_list %}
 					<div class="col-md-3">
-				      	<a href = "#" class = "thumbnail">
-			    	     <img src = "{{ url_for('static', filename='Images/{{horse.pic}}.jpg') }}" alt = {{horse.name}} >
+				      	<a href = "{{url_for('horse_profile' , horse_id = horse.id)}} " class = "thumbnail">
+			    	     <img src = "{{ url_for('static', filename='Images/horse.jpg') }}" alt = {{horse.name}} >
 			      		</a>
 			      	 	<div class = "caption">
 		        	 	<h3>{{horse.name}}</h3>

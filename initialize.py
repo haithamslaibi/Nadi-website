@@ -23,11 +23,11 @@ haitham = Users(name='Haitham Slaibi',birthday = datetime(year=1997,month=5,day=
 raneem =Users(name='Raneem Slaibi',birthday = datetime(year=2000,month=1,day=16), password = 'test' , score = 10 , username = 'raneem.slaibi' , slogan = 'habla' ,course_height = 100 , pic = 'none')
 
 
-test_horse1 = Horses(name = 'Layali' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none' ,owner = 'me')
-test_horse2 = Horses(name = 'palestine' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
-test_horse3 = Horses(name = 'bahar' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
-test_horse4 = Horses(name = 'majnonee' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
-test_horse5 = Horses(name = 'zain' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,weight = 250 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
+test_horse1 = Horses(name = 'Layali' , birthday = datetime(year=2001,month=5,day=13), height = 160 ,max_jump = 150 , course_height = 120 , pic='none' ,owner = 'me')
+test_horse2 = Horses(name = 'palestine' , birthday = datetime(year=2001,month=5,day=13), height = 160 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
+test_horse3 = Horses(name = 'bahar' , birthday = datetime(year=2001,month=5,day=13), height = 160 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
+test_horse4 = Horses(name = 'majnonee' , birthday = datetime(year=2001,month=5,day=13), height = 160 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
+test_horse5 = Horses(name = 'zain' , birthday = datetime(year=2001,month=5,day=13), height = 160 , max_jump = 150 , course_height = 120 , pic='none',owner = 'me')
 
 admin = Admin (username = 'admin' ,password = 'admin')
 #test_data = Data()

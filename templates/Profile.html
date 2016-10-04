@@ -13,6 +13,74 @@
 
 </head>
 <body>
-	
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="{{url_for('home')}}">Nadi Home Page</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="{{url_for('home')}}">Home</a></li>
+		      <li><a href="{{url_for('riders')}}">Riders</a></li>
+		      <li><a href="{{url_for('horses')}}">Horses</a></li>
+		      <li><a href="{{url_for('score') }}">Score</a></li>
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right">
+ 		    	{%if id != 0%}
+    			<li><a href="{{url_for('profile')}}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+    			<li><a href="{{url_for('logOut')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    			{% elif id == 0 %}
+    			<li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> LogIn</a></li>
+    			{%endif%}
+    		</ul>		    
+		  </div>
+		</nav>
+
+		<div class="contaiiner padding" >
+			<div class = "row">
+				<div class = "col-md-1"></div>
+				<div class = "col-md-2">
+					<img src="{{url_for('static' , filename = 'Images/user.jpg') }}" height=180 px width="150">
+				</div>
+				<div class="col-md-2 "> 
+				<h4>Name : {{user.name}}</h4> <br>
+				<h4>Age : {{age}} </h4> 
+				<h4>Horse : {{user.horse}} </h4> 
+				<h4>Club : {{user.club}} </h4> 
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="container">
+	    <h2>2016</h2>
+	    <table class="table table-hover">
+	    <thead>
+	      <tr>
+	        <th>Round</th>
+	        <th>Date</th>
+	        <th>Place</th>
+	        <th>Score</th>
+	        <th>Total Score</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+<!--	    {% for rider in rider_list %}
+	        <a href="#">
+	        <tr>
+	        <td>{{rider.name}}</td>
+	        <td>{{rider.club}}</td>
+	        <td>{{rider.score}}</td>
+	      	</tr>
+	      	</a>
+	    {% endfor %}  -->
+	    </tbody>
+	    </table>
+		</div>
+
+
 </body>
 </html>
+
+
+

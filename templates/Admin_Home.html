@@ -2,8 +2,88 @@
 <html>
 <head>
 	<title>adminnnnnn</title>
+
+	<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+	<!-- Latest compiled and minified CSS --> 
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+	<!-- jQuery library --> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+	<!-- Latest compiled JavaScript --> 
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Css/styles.css') }}">
+	<link rel="stylesheet" type="text/javascript" href="{{ url_for('static', filename='Js/Javascript.js') }}">
+
 </head>
 <body>
-Hell world ! :)
+	<form action="{{url_for('admin_add') }}" method="POST">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+			
+				<h2>Home Page</h2>
+				<br>
+				<input type="checkbox" name="carousel" value="carousel">
+				<br>
+				<h4>Img 1</h4>
+					<h5>Image : <input type="text" name="carousel_img_1" placeholder="URL"> </h5>
+					<h5>Title :  <input type="text" name="Title_img_1" placeholder="Title"> </h5>
+					<h5>Text :  <input type="text" name="text_img_1" placeholder="Text"> </h5>
+				<br>
+				<h4>Img 2</h4>
+					<h5>Image : <input type="text" name="carousel_img_2" placeholder="URL"> </h5>
+					<h5>Title :  <input type="text" name="Title_img_2" placeholder="Title"> </h5>
+					<h5>Text :  <input type="text" name="text_img_2" placeholder="Text"> </h5>
+				<br>
+				<h4>Img 3</h4>
+					<h5>Image : <input type="text" name="carousel_img_3" placeholder="URL"> </h5>
+					<h5>Title :  <input type="text" name="Title_img_3" placeholder="Title"> </h5>
+					<h5>Text :  <input type="text" name="text_img_3" placeholder="Text"> </h5>
+			
+			</div>
+			
+			<div class="col-md-4">
+
+				<h2>Add Rider</h2>
+					<br>
+					<input type="checkbox" name="rider" value="rider">
+					<br>
+					<h5>Name : <input type="text" name="ridername" placeholder="Name"></h5>
+					<h5>UserName : <input type="text" name="username" placeholder="Username"></h5>
+					<h5>Password : <input type="text" name="password" placeholder="Password"></h5>
+					<h5>Score : <input type="text" name="score" placeholder="Score"></h5>
+					<h5>Birthday : Day:<input type="number" name="day" min="1" max="31"> Month: <input type="number" name="month" min="1" max="12"> Year: <input type="number" name="year"></h5>
+					<h5>Horse : <input type="text" name="horsename" placeholder="Name"></h5>
+					<h5>Club : <input type="text" name="club" placeholder="Club"></h5>
+					<h5>Pic : <input type="text" name="riderpic" placeholder="URL"></h5>
+					<h5>Slogan : <input type="text" name="slogan" placeholder="Slogan"></h5>
+					<h5>Course Height : <input type="number" name="ridercourseheight" placeholder="Height"></h5>
+					<h5>History : <input type="text" name="history" placeholder="History"></h5>
+
+			</div>
+
+			<div class="col-md-4">
+
+				<h2>Add Horse</h2>
+					<br>
+					<input type="checkbox" name="horse" value="horse">
+					<br>
+					<h5> Name : <input type="text" name="horsename" ></h5>
+					<h5>Birthday : Day:<input type="number" name="hday" min="1" max="31"> Month: <input type="number" name="hmonth" min="1" max="12"> Year: <input type="number" name="hyear"></h5>
+					<h5> Max Jump : <input type="number" name="maxjump" ></h5>
+					<h5> Course Height : <input type="number"  name="horsemaxcourse"></h5>
+					<h5> Pic : <input type="text" name="horsepic" ></h5>
+					<h5> Owner : <input type="text" name="owner" ></h5>
+			</div>
+		</div>
+				<div class="row">
+				<div class="col-md-6"></div>
+				<div class="col-md-6">
+				<input type="submit" value="Submit" >
+				</div>
+				</div>
+	</div>
+	</form>
+
+	
 </body>
 </html>

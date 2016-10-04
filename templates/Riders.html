@@ -25,7 +25,12 @@
 		      <li><a href="{{url_for('score') }}">Score</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
-    			<li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		    	{%if id != 0%}
+    			<li><a href="{{url_for('profile')}}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+    			<li><a href="{{url_for('logOut')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    			{% elif id == 0 %}
+    			<li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> LogIn</a></li>
+    			{%endif%}
     		</ul>
 		  </div>
 		</nav>
@@ -35,8 +40,8 @@
 			<div class="row row-centered">
 				{% for rider in rider_list %}
 					<div class="col-md-3">
-				      	<a href = "#" class = "thumbnail">
-			    	     <img src = "{{ url_for('static', filename='Images/{{rider.pic}}.jpg') }}" alt = {{rider.name}} >
+				      	<a href = "{{url_for('profile_anonymous' , user_id = rider.id)}}" class = "thumbnail">
+			    	     <img src = "{{ url_for('static', filename='Images/user.jpg') }}" alt = {{rider.name}} >
 			      		</a>
 			      	 	<div class = "caption">
 		        	 	<h3>{{rider.name}}</h3>

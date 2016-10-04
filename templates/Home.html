@@ -26,8 +26,12 @@
 		      <li><a href="{{url_for('score') }}">Score</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
+		    	{%if id != 0%}
     			<li><a href="{{url_for('profile')}}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
     			<li><a href="{{url_for('logOut')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    			{% elif id == 0 %}
+    			<li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> LogIn</a></li>
+    			{%endif%}
     		</ul>
 		  </div>
 		</nav>
@@ -54,7 +58,7 @@
 				        <img src="{{url_for('static' , filename = 'Images/horse pic 1.jpg')}}" alt="Chania" width="560" height="445">
 				        <div class="carousel-caption">
 				          <h3>Chania</h3>
-				          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+				          <p>الفارس الراحل :")</p>
 				        </div>
 				      </div>
 

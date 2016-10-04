@@ -18,6 +18,9 @@ class Users(Base):
 	slogan = Column(String)
 	course_height = Column(Integer)  
 	pic = Column(String)
+	horse = Column(String)
+	club = Column(String)
+	history = Column(String)
 
 class Admin(Base):
 	__tablename__ = 'admin'
@@ -32,7 +35,6 @@ class Horses(Base):
 	name = Column(String)
 	birthday = Column(Date)
 	height = Column(Integer)
-	weight = Column(Integer)
 	max_jump = Column(Integer)
 	course_height = Column(Integer)
 	pic = Column(String)
