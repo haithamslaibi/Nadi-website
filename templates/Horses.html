@@ -41,7 +41,7 @@
 				{% for horse in horse_list %}
 					<div class="col-md-3">
 				      	<a href = "{{url_for('horse_profile' , horse_id = horse.id)}} " class = "thumbnail">
-			    	     <img src = "{{ url_for('static', filename='Images/horse.jpg') }}" alt = {{horse.name}} >
+			    	     <img src = {{horse.pic}} alt = {{horse.name}} >
 			      		</a>
 			      	 	<div class = "caption">
 		        	 	<h3>{{horse.name}}</h3>
