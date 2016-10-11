@@ -13,7 +13,14 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Css/styles.css') }}">
 	<link rel="stylesheet" type="text/javascript" href="{{ url_for('static', filename='Js/Javascript.js') }}">
 
-</head>
+	<script>
+		
+		function myFunction{
+			alert("Please add a correct birthday date :)");
+		} 
+
+	</script>
+
 <body>
 	<form action="{{url_for('admin_add') }}" method="POST">
 	<div class="container">
@@ -25,7 +32,7 @@
 				<input type="checkbox" name="carousel" value="carousel">
 				<br>
 				<h4>Img 1</h4>
-					<h5>Image : <input type="text" name="carousel_img_1" placeholder="URL"> </h5>
+					<h5>Image : <input type="text" name="carousel_img_1" placeholder="URL"></h5>
 					<h5>Title :  <input type="text" name="Title_img_1" placeholder="Title"> </h5>
 					<h5>Text :  <input type="text" name="text_img_1" placeholder="Text"> </h5>
 				<br>
@@ -47,7 +54,7 @@
 					<br>
 					<input type="checkbox" name="rider" value="rider">
 					<br>
-					<h5>Name : <input type="text" name="ridername" placeholder="Name"></h5>
+					<h5>Name : <input type="text" name="ridername" placeholder="Name" onchange="myFunction()"></h5>
 					<h5>UserName : <input type="text" name="username" placeholder="Username"></h5>
 					<h5>Password : <input type="text" name="password" placeholder="Password"></h5>
 					<h5>Score : <input type="text" name="score" placeholder="Score"></h5>

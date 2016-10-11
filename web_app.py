@@ -125,95 +125,36 @@ def login():
 def admin_add():
 
 	if request.method == "POST":
-		print("sdasdadsaaaaaaaaaaaaaaaaaaaaaaaa")			
-		if request.form['carousel'] == 'carousel':
+		if request.form.get('carousel',None) != None:
 			print("carousel")
-		elif request.form['rider'] == 'rider':
-			riderbirthday = datetime(year =  int(request.form['year']) , month = int(request.form['month']),day = int(request.form['day']))
-			
-			rider = Users(name = request.form['ridername'],username = request.form['username'],
-			password=request.form['password'],score = request.form['score'],
-			birthday= riderbirthday ,horse = request.form['horsename'] , club = request.form['club'] ,
-			pic = request.form['riderpic'] , slogan = request.form['slogan'] , course_height = request.form['ridercourseheight'],
-			history = request.form['history'] )
-			dbsession.add(rider)
-			print("rider")
-		elif request.form['horse'] == 'horse':
-			horsebirthday = datetime(year =  int(request.form['hyear']) , month = int(request.form['hmonth']),day = int(request.form['hday']))
-
-			horse = Horses(name = request.form['horsename'] , birthday = horsebirthday , max_jump = request.form['maxjump'] , pic = request.form['horsepic'] , owner=request.form['owner'] )
-
-			dbsession.add(horse)
-			print("horse")
-		print("asssssssssssssssssssssssssssssssssssssssssssssss")
-		dbsession.commit()
-		
-		return redirect(url_for('admin'))
-	else :
-		return redirect(url_for('home'))
-
-
-# workinggg 
-	if request.method == "POST":			
-		riderbirthday = datetime(year =  int(request.form['year']) , month = int(request.form['month']),day = int(request.form['day']))
-		
-		rider = Users(name = request.form['ridername'],username = request.form['username'],
-		password=request.form['password'],score = request.form['score'],
-		birthday= riderbirthday ,horse = request.form['horsename'] , club = request.form['club'] ,
-		pic = request.form['riderpic'] , slogan = request.form['slogan'] , course_height = request.form['ridercourseheight'],
-		history = request.form['history'] )
-		dbsession.add(rider)
-
-
-
-
-		horsebirthday = datetime(year =  int(request.form['hyear']) , month = int(request.form['hmonth']),day = int(request.form['hday']))
-
-		horse = Horses(name = request.form['horsename'] , birthday = horsebirthday , max_jump = request.form['maxjump'] , pic = request.form['horsepic'] , owner=request.form['owner'] )
-
-		dbsession.add(horse)
-		
-		dbsession.commit()
-		
-		return redirect(url_for('admin'))
-	else :
-		return redirect(url_for('home'))
-
-
-
-
-
-
-
-
-	# if request.method == "POST":
-	# 	if request.form['ckeck'] == "carousel":
-	# 		pass
-
-	# 	elif request.form['check'] == "rider":			
-			
-	# 		birthday = datetime(year =  int(request.form['year']) , month = int(request.form['month']),day = int(request.form['day']))
-			
-	# 		rider = Users(name = request.form['ridername'],username = request.form['username'],
-	# 		password=request.form['password'],score = request.form['score'],
-	# 		birthday= birthday ,horse = request.form['horsename'] , club = request.form['club'] ,
-	# 		pic = request.form['riderpic'] , slogan = request.form['slogan'] , course_height = request.form['ridercourseheight'],
-	# 		history = request.form['history'] )
-	# 		dbsession.add(rider)
-
-	# 	elif request.form['check'] == "horse":
 	
-	# 		horse = Horses(name = request.form['horsename'],birthday = datetime(year=int(request.form['hyear']) ,
-	# 		month = int(request.form['hmonth']) , day = int(request.form['hday']) ) , max_jump = request.form['maxjump'] ,
-	# 		course_height = request.form['horsecourseheight'] , pic = request.form['horsepic'] , owner = request.form['owner']  )
-			
-	# 		dbsession.add(horse)
+		if request.form.get('rider',None) != None:
+			if request.form['year'] == "" or request.form['month'] == "" or request.form['day'] == "" :
+				return render_template("Admin_Home.html" , birthday = True)
+			else:
+				riderbirthday = datetime(year =  int(request.form['year']) , month = int(request.form['month']),day = int(request.form['day']))
+				rider = Users(name = request.form['ridername'],username = request.form['username'],
+				password=request.form['password'],score = request.form['score'],
+				birthday= riderbirthday ,horse = request.form['horsename'] , club = request.form['club'] ,
+				pic = request.form['riderpic'] , slogan = request.form['slogan'] , course_height = request.form['ridercourseheight'],
+				history = request.form['history'] )
+				dbsession.add(rider)
+				print("rider")
+	
+		if request.form.get('horse',None) != None:
+			if request.form['hyear'] == "" or request.form['hmonth'] == "" or request.form['hday'] == "" :
+				return render_template('Admin_Home.html' , birthday = True)
+			else:
+				riderbirthday = datetime(year =  int(request.form['hyear']) , month = int(request.form['hmonth']),day = int(request.form['hday']))
+				horse = Horses(name = request.form['horsename'] , birthday = horsebirthday , max_jump = request.form['maxjump'] , pic = request.form['horsepic'] , owner=request.form['owner'] )
+				dbsession.add(horse)
+				print("horse")
 		
-	# 	dbsession.commit()
-		
-	# 	return redirect(url_for('admin'))
-	# else :
-	# 	return redirect(url_for('home'))
+		dbsession.commit()
+
+		return redirect(url_for('admin'))
+	else :
+		return redirect(url_for('home'))
 
 
 @app.route('/Debug')
